@@ -11,16 +11,11 @@ GAME RULES:
 
 var scores, roundScores, activePlayer, dice;
 
-scores = [0,0];
-roundScore = 0;
-activePlayer = 0;
+
 
 diceHide();
 
-document.getElementById('score-0').textContent = '0';
-document.getElementById('score-1').textContent = '0';
-document.getElementById('current-0').textContent = '0';
-document.getElementById('current-1').textContent = '0';
+
 
 
 document.querySelector('.btn-roll').addEventListener('click', function() {
@@ -59,8 +54,7 @@ document.querySelector('.btn-hold').addEventListener('click', function() {
         diceHide();
         document.querySelector('.player-' + activePlayer + '.panel').classList.add('winner');
         document.querySelector('.player-' + activePlayer + '.panel').classList.remove('active');
-        var dice = "";
-        document.querySelector
+       
     } else {
         nextPlayer();
     }
@@ -86,9 +80,28 @@ function diceHide() {
     document.querySelector('.dice').style.display = 'none';
 }
 
+document.querySelector('.btn-new').addEventListener('click', init);
+
+function init() {
+    scores = [0,0];
+    roundScore = 0;
+    activePlayer = 0;
+    document.getElementById('score-0').textContent = '0';
+    document.getElementById('score-1').textContent = '0';
+    document.getElementById('current-0').textContent = '0';
+    document.getElementById('current-1').textContent = '0';
+    document.getElementById('name-0').textContent = 'Player 1';
+    document.getElementById('name-1').textContent = 'Player 2';
+    document.querySelector('.player-0-panel').classList.remove('winner');
+    document.querySelector('.player-1-panel').classList.remove('winner');
+    document.querySelector('.player-0-panel').classList.remove('active');
+    document.querySelector('.player-0-panel').classList.add('active');
+    document.querySelector('.player-1-panel').classList.remove('active');
+    diceHide;
+}
 
 
-
+//document.querySelector('#current-' + activePlayer).textContent = dice;
 //document.querySelector('#current-' + activePlayer).textContent = dice;
 // document.querySelector('#current-' + activePlayer).innerHTML = '<em>' + dice + '</em>';
 //var x = document.querySelector('#score-0').textContent;
